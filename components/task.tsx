@@ -1,21 +1,15 @@
-import * as React from 'react';
+import { useState } from 'react';
+import { View } from 'react-native';
+import { Text } from '@/components/ui/text';
 import { Checkbox } from '@/components/ui/checkbox';
-import { View, Text } from 'react-native';
+import { ITask } from '@/app/index';
 
-export interface ITask {
-  title: string;
-  category: string;
-  isChecked: boolean;
+interface TaskProps {
+  task: ITask;
 }
 
-export default function HomeScreen() {
-  const [checked, setChecked] = React.useState(false);
-
-  const task: ITask = {
-    title: 'My test item',
-    category: 'Test category',
-    isChecked: false,
-  };
+export default function Task({ task }: TaskProps) {
+  const [checked, setChecked] = useState(false);
 
   return (
     <View className="bg-background flex flex-1">
@@ -27,9 +21,10 @@ export default function HomeScreen() {
             onCheckedChange={setChecked}
           />
         </View>
+
         <View className="border-foreground-transparent flex-1 border-b py-4">
-          <Text className="text-foreground">Submit Assignment</Text>
-          <Text className="text-foreground-transparent">Due: Oct 20</Text>
+          <Text className="text-foreground"></Text>
+          <Text className="text-foreground-transparent">}</Text>
         </View>
       </View>
     </View>
