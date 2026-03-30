@@ -24,7 +24,7 @@ export default function Task({ task }: TaskProps) {
 
         <View className="border-foreground-transparent flex-1 border-b py-4">
           <Text className="text-foreground"></Text>
-          <Text className="text-foreground-transparent">}</Text>
+          <Text className="text-foreground-transparent"></Text>
         </View>
       </View>
     </View>
