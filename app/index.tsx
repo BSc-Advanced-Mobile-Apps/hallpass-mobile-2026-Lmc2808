@@ -1,6 +1,8 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import { ScrollView, View } from 'react-native';
+import { Text } from '@/components/ui/text';
 import { Task } from '@/components/task';
+import { AddTask } from '@/components/AddTask';
 
 export interface ITask {
   id: number;
@@ -30,12 +32,30 @@ export default function HomeScreen() {
       isChecked: false,
     },
   ];
+  const [tasks, setTasks] = React.useState<ITask[]>(initialTasks);
+
+  const handleAddTask = (title: string, category: string) => {
+    const nextId = tasks.length > 0 ? Math.max(...tasks.map((t) => t.id)) + 1 : 1;
+    setTasks([...tasks, { id: nextId, title, category, isChecked: false }]);
+  };
 
   return (
-    <View className="bg-background flex flex-1">
-      {initialTasks.map((task) => (
-        <Task key={task.id} task={task} />
-      ))}
+    <View className="bg-background flex flex-1 justify-between">
+      <View className="flex flex-row justify-center">
+        <Text className="text-foreground pt-20 text-6xl font-bold">HallPass</Text>
+      </View>
+      <ScrollView
+        contentContainerStyle={{
+          paddingHorizontal: 24,
+          paddingVertical: 16,
+        }}>
+        {tasks.map((task) => (
+          <Task key={task.id} task={task} />
+        ))}
+      </ScrollView>
+      <View className="relative flex items-center">
+        <AddTask onAdd={handleAddTask} />
+      </View>
     </View>
   );
 }
