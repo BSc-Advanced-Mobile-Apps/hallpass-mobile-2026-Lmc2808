@@ -71,7 +71,7 @@ function TaskDialogue({ task, setTask, setShowDialog, showDialog }: TaskDialogPr
         </DialogClose>
         <DialogClose asChild>
           <Button className="bg-brand-primary w-1/2 rounded-3xl" onPress={handleSave}>
-            <Text className="text-background">Save changes</Text>
+            <Text className="text-background">Save</Text>
           </Button>
         </DialogClose>
       </DialogFooter>
