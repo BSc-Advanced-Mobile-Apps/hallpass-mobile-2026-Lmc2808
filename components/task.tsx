@@ -9,15 +9,19 @@ import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 
 interface TaskProps {
   task: ITask;
+  onUpdate?: (task: ITask) => void;
 }
 
-function Task({ task: initialTask }: TaskProps) {
+function Task({ task: initialTask, onUpdate }: TaskProps) {
   const [task, setTask] = React.useState(initialTask);
   const [showDialog, setShowDialog] = React.useState(false);
 
   const handleSetChecked = () => {
-    const nextChecked = !task.isChecked;
-    setTask({ ...task, isChecked: nextChecked });
+    const updatedTask = { ...task, isChecked: !task.isChecked };
+    setTask(updatedTask);
+    if (onUpdate) {
+      onUpdate(updatedTask);
+    }
   };
 
   return (
