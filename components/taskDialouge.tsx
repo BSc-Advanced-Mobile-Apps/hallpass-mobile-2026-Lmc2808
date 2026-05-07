@@ -26,6 +26,8 @@ function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: Task
   const [editedTitle, setEditedTitle] = React.useState(task.title);
   const [editedCategory, setEditedCategory] = React.useState(task.category);
 
+  const isNewTask = task.title === '' && task.category === '';
+
   const handleUpdateTitle = (title: string) => {
     setEditedTitle(title);
   };
@@ -51,10 +53,10 @@ function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: Task
   };
 
   return (
-    <DialogContent className="max-w-5/6">
+    <DialogContent className="bg-background w-96 rounded-2xl p-6">
       <DialogHeader>
-        <DialogTitle>Edit Task</DialogTitle>
-        <DialogDescription>Make changes to your task details here.</DialogDescription>
+        <DialogTitle>{isNewTask ? 'Add' : 'Edit'} Task</DialogTitle>
+        <DialogDescription>Create a new task here...</DialogDescription>
       </DialogHeader>
 
       <View className="gap-4">
@@ -69,7 +71,7 @@ function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: Task
           <Text className="text-brand-primary">Cancel</Text>
         </Button>
         <Button className="bg-brand-primary flex-1w-1/2 rounded-3xl" onPress={handleSave}>
-          <Text>Save changes</Text>
+          <Text>Submit +</Text>
         </Button>
       </DialogFooter>
     </DialogContent>
