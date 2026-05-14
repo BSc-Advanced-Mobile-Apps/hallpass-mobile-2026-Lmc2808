@@ -26,7 +26,7 @@ function Task({ task: initialTask, onUpdate }: TaskProps) {
 
   return (
     <Dialog open={showDialog} onOpenChange={setShowDialog}>
-      <DialogTrigger asChild>
+      <DialogTrigger testID="task-trigger" asChild>
         <TouchableOpacity className="flex w-full flex-row">
           <View className="flex h-full w-24 px-8 py-5">
             <Checkbox

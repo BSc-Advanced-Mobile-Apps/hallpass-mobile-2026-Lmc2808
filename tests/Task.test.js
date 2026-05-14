@@ -68,7 +68,12 @@ describe('Task', () => {
       isChecked: false,
     };
 
-    render(<Task task={task} />);
+    render(
+      <>
+        <Task task={task} />
+        <PortalHost />
+      </>
+    );
 
     const taskTrigger = screen.getByTestId('task-trigger');
 
@@ -77,7 +82,8 @@ describe('Task', () => {
     const user = userEvent.setup();
     await user.press(taskTrigger);
 
-    const dialogueHeader = await screen.getByTestId('dialogue-header');
+    const dialogueHeader = await screen.findByTestId('dialogue-header');
+
     expect(dialogueHeader).toBeTruthy();
   });
 });

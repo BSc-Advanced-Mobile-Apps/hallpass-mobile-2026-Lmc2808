@@ -54,7 +54,7 @@ function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: Task
 
   return (
     <DialogContent className="bg-background w-96 rounded-2xl p-6">
-      <DialogHeader>
+      <DialogHeader testID="dialogue-header">
         <DialogTitle>{isNewTask ? 'Add' : 'Edit'} Task</DialogTitle>
         <DialogDescription>Create a new task here...</DialogDescription>
       </DialogHeader>
