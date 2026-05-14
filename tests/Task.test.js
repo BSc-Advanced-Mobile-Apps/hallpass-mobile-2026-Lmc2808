@@ -1,4 +1,5 @@
 import { render, screen, userEvent } from '@testing-library/react-native';
+import { PortalHost } from '@rn-primitives/portal';
 import { Task } from '../components/task';
 
 describe('Task', () => {
@@ -44,7 +45,12 @@ describe('Task', () => {
       isChecked: true,
     };
 
-    render(<Task task={task} />);
+    render(
+      <>
+        <Task task={task} />
+        <PortalHost />
+      </>
+    );
 
     const checkbox = screen.getByTestId('checkbox'); // Find the checkbox element
 
