@@ -64,9 +64,9 @@ function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: Task
         <Input value={editedCategory} placeholder="Category" onChangeText={handleUpdateCategory} />
       </View>
 
-      <DialogFooter className="mt-4 flex flex-row gap-2">
+      <DialogFooter className="mt-4 flex flex-row justify-center gap-2">
         <Button
-          className="border-brand-primary flex-1 rounded-3xl border bg-transparent"
+          className="border-brand-primary flex-1w-1/2 rounded-3xl border bg-transparent"
           onPress={() => setShowDialog(false)}>
           <Text className="text-brand-primary">Cancel</Text>
         </Button>
