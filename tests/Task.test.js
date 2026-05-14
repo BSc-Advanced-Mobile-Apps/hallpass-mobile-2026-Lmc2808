@@ -53,4 +53,25 @@ describe('Task', () => {
 
     expect(checkbox).not.toBeChecked();
   });
+
+  test('shows dialogue box when tapped', async () => {
+    const task = {
+      id: 1,
+      title: 'Test Task',
+      category: 'Test Category',
+      isChecked: false,
+    };
+
+    render(<Task task={task} />);
+
+    const taskTrigger = screen.getByTestId('task-trigger');
+
+    expect(screen.queryByTestId('dialogue-header')).toBeNull();
+
+    const user = userEvent.setup();
+    await user.press(taskTrigger);
+
+    const dialogueHeader = await screen.getByTestId('dialogue-header');
+    expect(dialogueHeader).toBeTruthy();
+  });
 });
