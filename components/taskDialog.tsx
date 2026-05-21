@@ -22,7 +22,7 @@ interface TaskDialogProps {
   setShowDialog: (showDialog: boolean) => void;
   showDialog: boolean;
 }
-function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: TaskDialogProps) {
+function TaskDialog({ onSave, task, setTask, setShowDialog, showDialog }: TaskDialogProps) {
   const [editedTitle, setEditedTitle] = React.useState(task.title);
   const [editedCategory, setEditedCategory] = React.useState(task.category);
 
@@ -78,4 +78,4 @@ function TaskDialogue({ onSave, task, setTask, setShowDialog, showDialog }: Task
   );
 }
 
-export { TaskDialogue };
+export { TaskDialog };

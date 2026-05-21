@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 import { Plus } from '@/lib/icons/Plus';
-import { TaskDialogue } from './taskDialouge';
+import { TaskDialog } from './taskDialog';
 import { Dialog, DialogTrigger } from '@/components/ui/dialog';
 import { ITask } from '@/app';
 
@@ -43,7 +43,7 @@ export default function AddTask({ onAdd }: AddTaskProps) {
           </TouchableOpacity>
         </DialogTrigger>
 
-        <TaskDialogue
+        <TaskDialog
           key={dialogKey}
           task={{ id: 0, title: task.title, category: task.category, isChecked: false }}
           setTask={(newTask) => {

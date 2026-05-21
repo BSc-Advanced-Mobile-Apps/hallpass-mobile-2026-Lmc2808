@@ -1,7 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
-import { TaskDialogue } from '@/components/taskDialouge';
+import { TaskDialog } from '@/components/taskDialog';
 import { Text } from '@/components/ui/text';
 import { Checkbox } from '@/components/ui/checkbox';
 import { ITask } from '@/app';
@@ -42,7 +42,7 @@ function Task({ task: initialTask, onUpdate }: TaskProps) {
           </View>
         </TouchableOpacity>
       </DialogTrigger>
-      <TaskDialogue
+      <TaskDialog
         task={task}
         setTask={setTask}
         setShowDialog={setShowDialog}
